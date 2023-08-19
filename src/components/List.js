@@ -1,9 +1,18 @@
+import ListItem from "./ListItem";
+
 const List = (props) => {
-    return (
-        <ul id="myUL">
-            {/**TODO : List over all the list items from the props */}
-        </ul>
-    );
-}
+  const deleteHandler = (item) => {
+    props.removeItem(item);
+    console.log(item);
+  };
+
+  return (
+    <ul id="myUL">
+      {props.items.map((items, index) => (
+        <ListItem idx={index} item={items} deleteHandler={deleteHandler} />
+      ))}
+    </ul>
+  );
+};
 
 export default List;

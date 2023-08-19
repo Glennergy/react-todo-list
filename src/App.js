@@ -12,17 +12,28 @@ function App() {
     "Organize office",
   ];
 
-  {/** PART 2: Add listItems into state*/}
+  {
+    /** PART 2: Add listItems into state*/
+  }
   const [items, setItems] = useState(listItems);
 
   const clickHandler = (item) => {
+    const newItem = { item };
+    console.log(newItem);
+    setItems([...items, item]);
+    console.log(items);
+  };
+
+  const removeItem = (deleteItem) => {
+    const newList = items.filter((item) => item !== deleteItem);
+    setItems(newList);
   };
 
   return (
     <>
       {/** PART 2: Pass clickHandler to the Header */}
-      <Header title="My Notes" />
-      <List items={items} />
+      <Header title="My Notes" clickHandler={clickHandler} />
+      <List items={items} removeItem={removeItem} />
     </>
   );
 }
