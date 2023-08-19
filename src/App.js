@@ -24,9 +24,9 @@ function App() {
     console.log(items);
   };
 
-  const removeItem = (deleteItem) => {
-    const newList = items.filter((item) => item !== deleteItem);
-    setItems(newList);
+  const removeItem = (idx) => {
+    items.splice(idx, 1);
+    setItems([...items]);
   };
 
   return (

@@ -1,10 +1,10 @@
 const ListItem = (props) => {
   const deleteItem = () => {
-    props.deleteHandler(props.item);
+    props.deleteHandler();
   };
 
   return (
-    <li key={props.idx}>
+    <li key={props.key}>
       {props.item}{" "}
       <span onClick={deleteItem} class="close">
         ×
